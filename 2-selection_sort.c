@@ -7,11 +7,11 @@
  **/
 void swap(int *x, int *y)
 {
-  int tmp;
+int temp;
 
-  tmp = *x;
-  *x = *y;
-  *y = tmp;
+temp = *x;
+*x = *y;
+*y = temp;
 }
 
 /**
