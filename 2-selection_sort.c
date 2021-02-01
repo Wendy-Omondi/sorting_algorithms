@@ -1,6 +1,20 @@
 #include "sort.h"
 
 /**
+ * swap - swap two integers
+ * @x: first integer
+ * @y: second integer
+ **/
+void swap(int *x, int *y)
+{
+  int tmp;
+
+  tmp = *x;
+  *x = *y;
+  *y = tmp;
+}
+
+/**
  *selection_sort - function that sorts an array of integers in
  *                 ascending order using the Selection sort algorithm
  *@array: integers to be sorted
@@ -9,25 +23,24 @@
  */
 void selection_sort(int *array, size_t size)
 {
-int x, y;
-int least;
-int temp;
-int nsz = size;
+unsigned int i, j, least;
 
-for (x = 0; x < nsz - 1; x++)
+if (array == NULL || size < 2)
+return;
+
+for (i = 0; i < size; i++)
 {
-least = x;
-for (y = x + 1; y < nsz; y++)
+least = i;
+for (j = i + 1; j < size; j++)
 {
-if (array[y] < array[least])
-least = y;
+if (array[least] > array[j])
+least = j;
 }
-if (least != x)
+if (least != i)
 {
-temp = array[y];
-array[x] = array[least];
-array[least] = temp;
+swap(&array[i], &array[least]);
 print_array(array, size);
 }
 }
+
 }
